@@ -12,10 +12,9 @@ services:
     value: "rabbitmq"
   - key: RABBITMQ_PASS
     generateValue: True
+    # Used for Mmanagement UI is launched as Web sercive
   - key: PORT
     value: 15672
-  - key: RABBITMQ_PORT
-    value: 5672
   disk:
     name: rabbitmq
     mountPath: /var/lib/rabbitmq
