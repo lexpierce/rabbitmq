@@ -16,7 +16,7 @@ services:
     value: 15672
   - key: RABBITMQ_PORT
     value: 5672
-  # disk:
-  #   name: rabbitmq
-  #   mountPath: /var/lib/rabbitmq
-  #   sizeGB: 10
+  disk:
+    name: rabbitmq
+    mountPath: /var/lib/rabbitmq
+    sizeGB: 10
