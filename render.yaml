@@ -18,5 +18,5 @@ services:
     value: 5672
   disk:
     name: rabbitmq
-    mountPath: /var/lib/rabbitmq
+    mountPath: /var/lib/rabbitmq/mnesia
     sizeGB: 10
