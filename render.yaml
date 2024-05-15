@@ -2,8 +2,9 @@ services:
 - type: pserv
   name: rabbitmq
   runtime: docker
+  plan: starter
   dockerContext: ./
-  dockerFile: ./Dockerfile
+  dockerFilePath: ./Dockerfile
   envVars:
   - key: RABBITMQ_ERLANG_COOKIE
     generateValue: true
@@ -23,6 +24,7 @@ services:
 - type: web
   name: rabbitmq-management
   runtime: docker
+  plan: starter
   dockerContext: ./management
   dockerfilePath: ./management/Dockerfile
   envVars:
