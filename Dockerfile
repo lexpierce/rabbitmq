@@ -1,8 +1,7 @@
-FROM rabbitmq:3.8.0-management
+FROM rabbitmq:3-management
 
+ENV RABBITMQ_NODENAME=rabbit@${RENDER_SERVICE_NAME}
 COPY rabbitmq.conf /etc/rabbitmq/
-
-ENV RABBITMQ_NODENAME=rabbit@localhost
 
 RUN chown rabbitmq:rabbitmq /etc/rabbitmq/rabbitmq.conf
 

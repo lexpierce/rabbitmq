@@ -1,0 +1,7 @@
+# trailing slash in the location must be omitted only if default RabbitMQ virtual host is used
+server {
+	listen ${PORT};
+    location / {
+        proxy_pass http://${RABBIT_PORT}:${PORT};
+    }
+}

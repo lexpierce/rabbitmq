@@ -1,15 +1,38 @@
 services:
-- type: web
+- type: pserv
   name: rabbitmq
-  env: docker
+  runtime: docker
+  dockerContext: ./
+  dockerFile: ./Dockerfile
   envVars:
   - key: RABBITMQ_ERLANG_COOKIE
     generateValue: true
-  - key: RABBITMQ_DEFAULT_USER
-    value: rabbitmq
-  - key: RABBITMQ_DEFAULT_PASS
-    generateValue: true
+  - key: SEED_DEFAULT_USER
+    value: "rabbitmq"
+  - key: SEED_DEFAULT_PASS
+    generateValue: True
+  - key: PORT
+    value: 5672
+  - key: MANAGEMENT_PORT
+    value: 15672
   disk:
     name: rabbitmq
     mountPath: /var/lib/rabbitmq
     sizeGB: 10
+
+- type: web
+  name: rabbitmq-management
+  runtime: docker
+  dockerContext: ./management
+  dockerfilePath: ./management/Dockerfile
+  envVars:
+  - key: PORT
+    fromService:
+      name: rabbitmq
+      type: pserv
+      envVarKey: MANAGEMENT_PORT
+  - key: RABBITMQ_HOST
+    fromService:
+      name: rabbitmq
+      type: pserv
+      property: host
