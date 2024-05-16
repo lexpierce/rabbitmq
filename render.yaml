@@ -1,16 +1,19 @@
 services:
 - type: web
   name: rabbitmq
-  runtime: docker
+  runtime: image
+  image:
+    url: rabbitmq:3-management
   plan: starter
-  dockerContext: ./
-  dockerfilePath: ./Dockerfile
-  envVars:
+  # dockerContext: ./
+  # dockerfilePath: ./Dockerfile
+  # preDeployCommand: echo -n $RABBITMQ_ERLANG_COOKIE > /var/lib/rabbitmq/.erlang.cookie; chmod 0400 /var/lib/rabbitmq/.erlang.cookie; chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
+_  envVars:
   - key: RABBITMQ_ERLANG_COOKIE
     value: "rabbitmqcookie123"
-  - key: RABBITMQ_USER
+  - key: RABBITMQ_DEFAULT_USER
     value: "rabbitmq"
-  - key: RABBITMQ_PASS
+  - key: RABBITMQ_DEFAULT_PASS
     generateValue: True
     # Used for Mmanagement UI is launched as Web sercive
   - key: PORT
