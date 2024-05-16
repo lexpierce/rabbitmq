@@ -8,7 +8,7 @@ services:
   # dockerContext: ./
   # dockerfilePath: ./Dockerfile
   # preDeployCommand: echo -n $RABBITMQ_ERLANG_COOKIE > /var/lib/rabbitmq/.erlang.cookie; chmod 0400 /var/lib/rabbitmq/.erlang.cookie; chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
-_  envVars:
+  envVars:
   - key: RABBITMQ_ERLANG_COOKIE
     value: "rabbitmqcookie123"
   - key: RABBITMQ_DEFAULT_USER
