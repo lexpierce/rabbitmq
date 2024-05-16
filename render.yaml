@@ -6,8 +6,8 @@ services:
   dockerContext: ./
   dockerfilePath: ./Dockerfile
   envVars:
-  # - key: RABBITMQ_ERLANG_COOKIE
-  #   value: "rabbitmqcookie123"
+  - key: RABBITMQ_ERLANG_COOKIE
+    value: "rabbitmqcookie123"
   - key: RABBITMQ_USER
     value: "rabbitmq"
   - key: RABBITMQ_PASS
