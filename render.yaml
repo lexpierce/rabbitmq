@@ -7,7 +7,7 @@ services:
   plan: starter
   # dockerContext: ./
   # dockerfilePath: ./Dockerfile
-  preDeployCommand: ls -ld /var/lib/rabbitmq /var/lib/rabbitmq/.erlang.cookie
+  preDeployCommand: ls -lda /var/lib/rabbitmq /var/lib/rabbitmq/.erlang.cookie
   envVars:
   - key: RABBITMQ_ERLANG_COOKIE
     value: "rabbitmqcookie123"
