@@ -5,12 +5,7 @@ services:
   image:
     url: rabbitmq:3-management
   plan: starter
-  # dockerContext: ./
-  # dockerfilePath: ./Dockerfile
-  preDeployCommand: sh -c "echo ${RABBITMQ_ERLANG_COOKIE} > /var/lib/rabbbitmq/.erlang.cookie\; chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie\; chmod 0400 /var/lib/rabbitmq/.erlang.cookie"
   envVars:
-  - key: RABBITMQ_ERLANG_COOKIE
-    value: "rabbitmqcookie123"
   - key: RABBITMQ_DEFAULT_USER
     value: "rabbitmq"
   - key: RABBITMQ_DEFAULT_PASS
@@ -20,5 +15,5 @@ services:
     value: 15672
   disk:
     name: rabbitmq
-    mountPath: /var/lib/rabbitmq
+    mountPath: /var/lib/rabbitmq/mnesia
     sizeGB: 10
