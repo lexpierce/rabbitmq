@@ -1,14 +1,11 @@
 services:
 - type: web
+  plan: starter
   name: rabbitmq
   runtime: image
   image:
     url: rabbitmq:3-management
-  dockerCommand: docker-entrypoint.sh printf "${RABBITMQ_ERLANG_COOKIE}" > /var/lib/rabbitmq/.erlang.cookie && chmod 0400 /var/lib/rabbitmq/.erlang.cookie && chown rabbitmq /var/liv/rabbitmq/.erlang.cookie && rabbitmq-server
-  plan: starter
   envVars:
-  - key: RABBITMQ_ERLANG_COOKIE
-    value: "rabbitmq123"
   - key: RABBITMQ_DEFAULT_USER
     value: "rabbitmq"
   - key: RABBITMQ_DEFAULT_PASS
